@@ -34,6 +34,7 @@ def calculate_pi(n, give_time=False, logging=False):
     if logging:
         log.append((collisions, obj1.velocity, obj2.velocity))
 
+    print('Calculating pi...')
     while True:
         if elastic_collision(obj1, obj2):
             collisions += 1
