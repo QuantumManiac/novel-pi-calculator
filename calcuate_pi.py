@@ -3,7 +3,14 @@ import time
 
 
 def calculate_pi(n, give_time=False, logging=False):
-
+    """
+    Calculates the value of pi to n digits by simulating a system of two boxes and a wall colliding
+    :param n: digits of pi to calculate
+    :param give_time: if True, prints the time taken in terminal following function call
+    :param logging: if True, returns a list of tuples in format (collision#, obj1 vel, obj2, vel), appended after
+           every collision
+    :return: default:
+    """
     init_time = time.perf_counter()
     log = []
 
@@ -18,7 +25,6 @@ def calculate_pi(n, give_time=False, logging=False):
     if logging:
         log.append((collisions, obj1.velocity, obj2.velocity))
 
-
     while True:
         if elastic_collision(obj1, obj2):
             collisions += 1
@@ -28,8 +34,6 @@ def calculate_pi(n, give_time=False, logging=False):
             if vel < 0:
                 obj1.velocity = -vel
                 collisions += 1
-                if logging:
-                    log.append((collisions, obj1.velocity, obj2.velocity))
                 # print(f"obj1 bounces off wall. Collisions count: {collisions}")
         else:
             # print("End reached, objects will never collide again")
