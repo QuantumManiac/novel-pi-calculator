@@ -9,7 +9,7 @@ result, log = calculate_pi(n, True, True)
 
 print(f"Result: {result}")
 
-plot_results(log, True)
+plot_results(log, False)
 
 
 
