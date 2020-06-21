@@ -19,9 +19,9 @@ def elastic_collision(object_l, object_r):
     m1 = object_l.mass
     m2 = object_r.mass
 
-    if ((v1 < 0 < v2) or         # v1 and v2 going opposite directions away from each other
-       (v2 >= v1 and v2 > 0) or  # v2 going to the right at same speed or faster than v1
-       (v1 <= v2 < 0)):          # v1 going to the left at same speed or faster than v2
+    if ((v1 < 0 < v2) or          # v1 and v2 going opposite directions away from each other
+       (v2 >= v1 and v2 >= 0) or  # v2 going to the right at same speed or faster than v1
+       (v1 <= v2 <= 0)):          # v1 going to the left at same speed or faster than v2
         object_l.velocity, object_r.velocity = v1, v2
         return False
     else:
