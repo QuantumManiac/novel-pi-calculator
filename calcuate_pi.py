@@ -1,3 +1,4 @@
+from matplotlib import pyplot as plt
 from physics_objects import *
 import time
 
@@ -14,8 +15,6 @@ def calculate_pi(n, give_time=False, logging=False):
     init_time = time.perf_counter()
     log = []
 
-    if n <= 0:
-        return -1
     required_weight = 10 ** (1 + ((n - 1) * 2))
     init_speed = 50
     obj1 = PhysicsObject(10, 0)
@@ -34,6 +33,8 @@ def calculate_pi(n, give_time=False, logging=False):
             if vel < 0:
                 obj1.velocity = -vel
                 collisions += 1
+                if logging:
+                    log.append((collisions, obj1.velocity, obj2.velocity))
                 # print(f"obj1 bounces off wall. Collisions count: {collisions}")
         else:
             # print("End reached, objects will never collide again")
@@ -49,6 +50,29 @@ def calculate_pi(n, give_time=False, logging=False):
 
                 return calculated_pi
 
+
+def plot_results(log, show_polygon=True):
+    collisions, obj1, obj2, = zip(*log)
+
+    def modify_list(li):
+        li1 = li[0::2]
+        li2 = list(li[1::2])
+        li2 = li2[::-1]
+        li2.append(li[0])
+        return list(li1) + li2
+
+    poly_y = modify_list(obj1)
+    poly_x = modify_list(obj2)
+
+    plt.figure(figsize=(5, 5))
+    plt.plot(obj2, obj1)
+    if show_polygon:
+        plt.plot(poly_x, poly_y, label='Polygon', linewidth=2)
+    plt.xlabel("Velocity of Object 2")
+    plt.ylabel("Velocity of Object 1")
+    plt.legend()
+
+    plt.show()
 
 
 
