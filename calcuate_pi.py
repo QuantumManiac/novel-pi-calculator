@@ -25,7 +25,7 @@ def calculate_pi(n, give_time=False, logging=False):
     init_time = time.perf_counter()
     log = []
 
-    required_mass = 10 ** (1 + ((n - 1) * 2))
+    required_mass = 10 ** (2 * n - 1)
     init_speed = 50
     obj1 = PhysicsObject(10, 0)
     obj2 = PhysicsObject(required_mass, -init_speed)
