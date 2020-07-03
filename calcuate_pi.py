@@ -79,17 +79,13 @@ def plot_results(log, show_polygon=True):
         li2.append(li[0])
         return list(li1) + li2
 
-    poly_y = modify_list(obj1)
-    poly_x = modify_list(obj2)
-
     plt.figure(figsize=(5, 5))
     plt.plot(obj2, obj1)
     if show_polygon:
+        poly_y = modify_list(obj1)
+        poly_x = modify_list(obj2)
         plt.plot(poly_x, poly_y, label='Polygon', linewidth=2)
     plt.xlabel("Velocity of Object 2")
     plt.ylabel("Velocity of Object 1")
 
     plt.show()
-
-
-
