@@ -84,7 +84,7 @@ def plot_results(log, show_polygon=True):
     if show_polygon:
         poly_y = modify_list(obj1)
         poly_x = modify_list(obj2)
-        plt.plot(poly_x, poly_y, label='Polygon', linewidth=2)
+        plt.plot(poly_x, poly_y, label='Polygon', alpha=0.7)
     plt.xlabel("Velocity of Object 2")
     plt.ylabel("Velocity of Object 1")
 
