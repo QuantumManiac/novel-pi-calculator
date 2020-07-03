@@ -1,5 +1,5 @@
 # novel-pi-calculator
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/QuantumManiac/novel-pi-calculator/master?urlpath=https%3A%2F%2Fgithub.com%2FQuantumManiac%2Fnovel-pi-calculator%2Fblob%2Fmaster%2Fnovel-pi-calculator.ipynb)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://gesis.mybinder.org/binder/v2/gh/QuantumManiac/novel-pi-calculator/6c076e06cd3d4d236ee9b4b243be891d4ba6b4e2)
 
 A hilariously inefficient algorithm to calculate pi using the collisions between two boxes and a wall
 
