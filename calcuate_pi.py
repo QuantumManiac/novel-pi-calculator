@@ -25,10 +25,10 @@ def calculate_pi(n, give_time=False, logging=False):
     init_time = time.perf_counter()
     log = []
 
-    required_weight = 10 ** (1 + ((n - 1) * 2))
+    required_mass = 10 ** (2 * n - 1)
     init_speed = 50
     obj1 = PhysicsObject(10, 0)
-    obj2 = PhysicsObject(required_weight, -init_speed)
+    obj2 = PhysicsObject(required_mass, -init_speed)
 
     collisions = 0
     if logging:
@@ -51,7 +51,7 @@ def calculate_pi(n, give_time=False, logging=False):
             # print("End reached, objects will never collide again")
             if give_time:
                 final_time = time.perf_counter()
-                print(f"Time taken: {final_time - init_time:0.4f}s")
+                print(f"Time taken: {((final_time - init_time) * 1000):0.4f}ms")
 
             calculated_pi = float(collisions / (10 ** (n - 1)))
 
@@ -79,17 +79,13 @@ def plot_results(log, show_polygon=True):
         li2.append(li[0])
         return list(li1) + li2
 
-    poly_y = modify_list(obj1)
-    poly_x = modify_list(obj2)
-
     plt.figure(figsize=(5, 5))
     plt.plot(obj2, obj1)
     if show_polygon:
+        poly_y = modify_list(obj1)
+        poly_x = modify_list(obj2)
         plt.plot(poly_x, poly_y, label='Polygon', linewidth=2)
     plt.xlabel("Velocity of Object 2")
     plt.ylabel("Velocity of Object 1")
 
     plt.show()
-
-
-
